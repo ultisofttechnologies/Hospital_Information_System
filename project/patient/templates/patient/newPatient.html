@@ -7,22 +7,22 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Ultisoft - HIS</title>
+  <title>{{title}}</title>
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{url_for('static',filename='img/favicon.png')}}" rel="icon">
+  <link href="{{url_for('static',filename='img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{url_for('static',filename='lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <!--external css-->
-  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="css/zabuto_calendar.css">
-  <link rel="stylesheet" type="text/css" href="lib/gritter/css/jquery.gritter.css" />
+  <link href="{{url_for('static',filename='lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/zabuto_calendar.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='lib/gritter/css/jquery.gritter.css')}}" />
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet">
-  <script src="lib/chart-master/Chart.js"></script>
+  <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='css/style-responsive.css')}}" rel="stylesheet">
+  <script src="{{url_for('static',filename='lib/chart-master/Chart.js')}}"></script>
 </head>
 
 <body>
@@ -120,7 +120,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{url_for('static',filename='img/ui-zac.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Zac Snider</span>
                   <span class="time">Just now</span>
@@ -132,7 +132,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{url_for('static',filename='img/ui-divya.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Divya Manian</span>
                   <span class="time">40 mins.</span>
@@ -144,7 +144,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{url_for('static',filename='img/ui-danro.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Dan Rogers</span>
                   <span class="time">2 hrs.</span>
@@ -156,7 +156,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{url_for('static',filename='img/ui-sherman.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Dj Sherman</span>
                   <span class="time">4 hrs.</span>
@@ -232,7 +232,7 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="profile.html"><img src="{{url_for('static',filename='img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Ben Soffes</h5>
           <li class="mt">
             <a class="active" href="index.html">
@@ -364,14 +364,14 @@
           </div>
           <div class="col-md-2">
             <label for="sex" class="form-label">Sex</label>
-            <select class="form-select form-control" aria-label="Default select example">
+            <select class="form-select form-control" name="sex" aria-label="Default select example">
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
           </div>
           <div class="col-md-4">
             <label for="maritalstatus" class="form-label">Marital Status</label>
-            <select class="form-select form-control" aria-label="Default select example">
+            <select class="form-select form-control" name="maritalstatus" aria-label="Default select example">
               <option value="single">Single</option>
               <option value="married">Married</option>
             </select>
@@ -386,7 +386,7 @@
           </div>
           <div class="col-md-4">
             <label for="region" class="form-label">Region</label>
-            <select id="inputState" class="form-select form-control">
+            <select id="inputState" class="form-select form-control" name="region">
               <option selected>Northern Region - Tamale</option>
               <option>Oti Region - Dambai</option>
               <option>Bono East Region - Techiman</option>
@@ -430,7 +430,7 @@
             <input type="text" class="form-control" name="emergencyEmail" required>
           </div>
           <div class="col-md-3">
-            <button type="submit" class="btn btn-success">Add</button>
+            <button type="submit" name="submit" value="addPatient"class="btn btn-success">Add</button>
           </div>
         </form>
       </section>

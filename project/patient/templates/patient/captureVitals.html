@@ -7,22 +7,30 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Ultisoft - HIS</title>
+  <title>{{title}}</title>
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{url_for('static',filename='img/favicon.png')}}" rel="icon">
+  <link href="{{url_for('static',filename='img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{url_for('static',filename='lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <!--external css-->
-  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="css/zabuto_calendar.css">
-  <link rel="stylesheet" type="text/css" href="lib/gritter/css/jquery.gritter.css" />
+  <link href="{{url_for('static',filename='lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/zabuto_calendar.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='lib/gritter/css/jquery.gritter.css')}}" />
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet">
-  <script src="lib/chart-master/Chart.js"></script>
+  <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet">
+  <link href="{{url_for('static',filename='css/style-responsive.css')}}" rel="stylesheet">
+  <script src="{{url_for('static',filename='lib/chart-master/Chart.js')}}"></script>
+<script type="text/javascript">
+
+    function showData() {
+      var patientCode = Number(document.getElementById('patient_id'))
+    }
+
+</script>
+
 </head>
 
 <body>
@@ -120,7 +128,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{url_for('static',filename='img/ui-zac.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Zac Snider</span>
                   <span class="time">Just now</span>
@@ -132,7 +140,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{url_for('static',filename='img/ui-divya.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Divya Manian</span>
                   <span class="time">40 mins.</span>
@@ -144,7 +152,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{url_for('static',filename='img/ui-danro.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Dan Rogers</span>
                   <span class="time">2 hrs.</span>
@@ -156,7 +164,7 @@
               </li>
               <li>
                 <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
+                  <span class="photo"><img alt="avatar" src="{{url_for('static',filename='img/ui-sherman.jpg')}}"></span>
                   <span class="subject">
                   <span class="from">Dj Sherman</span>
                   <span class="time">4 hrs.</span>
@@ -232,7 +240,7 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="profile.html"><img src="{{url_for('static',filename='img/ui-sam.jpg')}}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Ben Soffes</h5>
           <li class="mt">
             <a class="active" href="index.html">
@@ -344,23 +352,23 @@
         <form class="row g-3" method="post">
           <div class="col-md-4">
             <label for="patientCode" class="form-label">Patient Code</label>
-            <input type="text" class="form-control" name="patientCode" required>
+            <input type="number" id="patient_id" class="form-control" name="patientCode" required>
           </div>
           <div class="col-md-4">
             <label for="firstname" class="form-label">First Name</label>
-            <input type="text" class="form-control" name="firstname" required>
+            <input type="text" class="form-control" id="firstname" name="firstname" required>
           </div>
           <div class="col-md-4">
             <label for="middlename" class="form-label">Middle Name</label>
-            <input type="text" class="form-control" name="middlename">
+            <input type="text" class="form-control" id="middlename" name="middlename">
           </div>
           <div class="col-md-4">
             <label for="lastname" class="form-label">Last Name</label>
-            <input type="text" class="form-control" name="lastname" required>
+            <input type="text" class="form-control" id="lastname" name="lastname" required>
           </div>
           <div class="col-md-2">
             <label for="age" class="form-label">Age</label>
-            <input type="text" class="form-control" name="age" required>
+            <input type="number" min="0" step="any" class="form-control" id="age" name="age" required>
           </div>
           <div class="col-md-4">
             <label for="dateofbirth" class="form-label">Date of Birth</label>
@@ -377,62 +385,62 @@
           <div class="col-md-3">
             <label for="weight" class="form-label">Weight</label>
             <div class="input-group">
-              <input type="text" class="form-control" aria-label="Weight in kilogram">
+              <input type="number" step="any" min="0" class="form-control" name="weight" aria-label="Weight in kilogram">
               <span class="input-group-text">Kg</span>
             </div>
           </div>
           <div class="col-md-3">
             <label for="height" class="form-label">Height</label>
             <div class="input-group">
-              <input type="text" class="form-control" aria-label="Height in kilogram">
+              <input type="number" step="any" min="0" class="form-control" name="height" aria-label="Height in kilogram">
               <span class="input-group-text">Cm</span>
             </div>
           </div>
           <div class="col-md-3">
             <label for="bmi" class="form-label">Calculated BMI</label>
             <div class="input-group">
-              <input type="text" class="form-control" aria-label="Calculated BMI">
+              <input type="number" step="any" min="0" class="form-control" name="calculatedBMI"aria-label="Calculated BMI">
               <span class="input-group-text">BMI</span>
             </div>
           </div>
           <div class="col-md-3">
             <label for="temperature" class="form-label">Temperature</label>
             <div class="input-group">
-              <input type="text" class="form-control" aria-label="Temperature">
+              <input type="number" step="any" min="0" class="form-control" name="temperature" aria-label="Temperature">
               <span class="input-group-text">°C</span>
             </div>
           </div>
           <div class="col-md-3">
             <label for="pulse" class="form-label">Pulse</label>
             <div class="input-group">
-              <input type="text" class="form-control" aria-label="Pulse">
+              <input type="number" step="any" min="0" class="form-control" name="pulse" aria-label="Pulse">
               <span class="input-group-text">/min</span>
             </div>
           </div>
           <div class="col-md-3">
             <label for="respiratoryRate" class="form-label">Respiratory Rate</label>
             <div class="input-group">
-              <input type="text" class="form-control" aria-label="Respiratory">
+              <input type="number" step="any" min="0" class="form-control" name="respiratoryRate" aria-label="Respiratory">
               <span class="input-group-text">/min</span>
             </div>
           </div>
           <div class="col-md-3">
             <label for="bloodPressure" class="form-label">Blood Pressure</label>
             <div class="input-group">
-              <input type="text" class="form-control" aria-label="Blood Pressure">
-              / 
-              <input type="text" class="form-control" aria-label="Blood Pressure">
+              <input type="number" step="any" min="0" class="form-control" name="bloodPressureone" aria-label="Blood Pressure">
+              /
+              <input type="number" step="any" min="0" class="form-control" name="bloodPressuretwo" aria-label="Blood Pressure">
             </div>
           </div>
           <div class="col-md-3">
             <label for="pulse-oximeter" class="form-label">Arterial blood oxygen sat.(pulse oximeter)</label>
             <div class="input-group">
-              <input type="text" class="form-control" aria-label="pulse-oximeter">
+              <input type="number" step="any" min="0" class="form-control" name="pulseOximeter" aria-label="pulse-oximeter">
               <span class="input-group-text">%</span>
             </div>
           </div>
           <div class="col-12">
-            <button type="submit" class="btn btn-success">Add Vitals</button>
+            <button type="submit" class="btn btn-success" name="submit" value="captureVitals">Add Vitals</button>
           </div>
         </form>
       </section>
