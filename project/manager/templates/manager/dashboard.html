@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block main %}
+  <h3><i class="fa fa-angle-right"></i> Dashboard</h3>
+  <div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 mb">
+        <div class="product-panel-2 pn">
+          <h5>Staff Statictics</h5>
+          <h6>Doctors: <span>1</span></h6>
+          <h6>Nurses: <span>4</span></h6>
+          <h6>Receptionists: <span>2</span></h6>
+          <button class="btn btn-small btn-theme">FULL REPORT</button>
+        </div>
+      </div>
+      <!-- /col-md-4 -->
+      <!--  PROFILE 02 PANEL -->
+      <div class="col-lg-4 col-md-4 col-sm-4 mb">
+        <div class="content-panel pn">
+          <div id="profile-02">
+            <div class="user">
+              <img src="{{url_for('static',filename='img/social_media.jpeg')}}" class="img-circle" width="80">
+              <h4>Check Handles</h4>
+            </div>
+          </div>
+          <div class="pr2-social centered">
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+          </div>
+        </div>
+        <!-- /panel -->
+      </div>
+      <!--/ col-md-4 -->
+      <div class="col-md-4 col-sm-4 mb">
+        <div class="green-panel pn">
+          <div class="green-header">
+            <h5>Total Patients</h5>
+          </div>
+          <h3></h3>
+          <h3>987</h3>
+          <div class="text-white centered">For the past <span>4 months</span></div>
+        </div>
+      </div>
+      <!-- /col-md-4 -->
+    </div>
+    <!-- /row -->
+    <div class="row mt">
+      <div class="col-md-4 col-sm-4 mb">
+        <!-- REVENUE PANEL -->
+        <div class="green-panel pn">
+          <div class="green-header">
+            <h5>REVENUE</h5>
+          </div>
+          <div class="chart mt">
+            <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,464,655]"></div>
+          </div>
+          <p class="mt"><b>GHS <span>170,980</span></b><br/>Month Income</p>
+        </div>
+      </div>
+      <!-- /col-md-4 -->
+
+      <!-- SERVER STATUS PANELS -->
+      <div class="col-md-4 col-sm-4 mb">
+        <div class="grey-panel pn">
+          <div class="grey-header">
+            <h5>Drugs Statictics</h5>
+          </div>
+            <h6>Total: <span>3240</span></h6>
+            <h6>In Stock: <span>400</span></h6>
+            <h6>Sold Out: <span>1800</span></h6>
+            <h6>Expired: <span>2</span></h6>
+            <button class="btn btn-small btn-theme">FULL REPORT</button>
+        </div>
+        <!-- /grey-panel -->
+      </div>
+      <!-- /col-md-4-->
+      <div class="col-md-4 col-sm-4 mb">
+        <div class="darkblue-panel pn">
+          <div class="darkblue-header">
+            <h5>Latest Backup</h5>
+          </div>
+          <p>April 17, 2021</p>
+          <h3>By: <span>Kenneth Sarpong</span></h3>
+        </div>
+        <!--  /darkblue panel -->
+      </div>
+      <!-- /col-md-4 -->
+      
+    </div>
+  </div>
+{% endblock %}

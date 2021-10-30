@@ -10,7 +10,7 @@
   <title>{{title}}</title>
 
   <!-- Favicons -->
-  <link href="{{url_for('static',filename='img/favicon.png')}}" rel="icon">
+  <link href="{{url_for('static',filename='img/favicon.ico')}}" rel="icon">
   <link href="{{url_for('static',filename='img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
@@ -28,16 +28,25 @@
     <div class="container">
       <form class="form-login" action="" method="post">
         <h2 class="form-login-heading">sign in now</h2>
+        {% with messages = get_flashed_messages() %}
+         {% if messages %}
+            <ul>
+               {% for message in messages %}
+               <li class="text-danger p-2">{{ message }}</li>
+               {% endfor %}
+            </ul>
+         {% endif %}
+      {% endwith %}
         <div class="login-wrap">
           <input type="text" class="form-control" name="username" placeholder="User Name" autofocus>
           <br>
           <input type="password" class="form-control" name="password" placeholder="Password">
           <label class="checkbox">
-            <span class="pull-right">
-            <a data-toggle="modal" href="login.html#myModal"> Forgot Password?</a>
-            </span>
           </label>
-          <button class="btn btn-theme btn-block" style="padding-top:10px" name="submit" value="Login" href="" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
+          <button class="btn btn-theme btn-block my-4" name="submit" value="Login" href="" type="submit"><i class="fa fa-key"></i> SIGN IN</button>
+          <span class="pull-right">
+            <a data-toggle="modal" href="#"> Forgot Password?</a>
+            </span>
           <hr>
           <div class="registration">
             Don't have an account yet?<br/>
@@ -76,7 +85,7 @@
   <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
   <script type="text/javascript" src="{{url_for('static',filename='lib/jquery.backstretch.min.js')}}"></script>
   <script>
-    $.backstretch("img/login-bg.jpg", {
+    $.backstretch("{{url_for('static',filename='img/login_bg.png')}}", {
       speed: 500
     });
   </script>

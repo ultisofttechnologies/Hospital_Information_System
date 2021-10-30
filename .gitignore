@@ -1,0 +1,4 @@
+# Ignore these when pushing
+/__pycache__
+.flaskenv
+.requirements.txt
