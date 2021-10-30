@@ -49,7 +49,7 @@ def login ():
 #@login_required
 def addUser ():
     db.create_all()
-    title = 'Natural Solutions Herbal Clinic | Login'
+    title = 'Natural Solutions Herbal Clinic | Add User'
     staff_positions = ['Manager','Employee']
     if request.method == 'POST':
         if request.form['submit'] == 'Register':
@@ -101,3 +101,9 @@ def addUser ():
         else:
             pass
     return render_template('addUser.html',title=title,staff_positions=staff_positions)
+
+
+@manager_blueprint.route('/dashboard',methods = ['GET','POST'])
+def dashboard():
+  title = 'Natural Solutions Herbal Clinic | Dashboard'
+  return render_template('dashboard.html', title=title)
