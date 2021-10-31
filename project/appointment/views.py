@@ -30,4 +30,22 @@ def newAppointment ():
 #@login_required
 def viewAppointments ():
   title = 'Natural Solutions Herbal Clinic | View Appointments'
-  return render_template('viewAppointments.html',title=title)
+  messages = ''
+  messages = 'View appointments messages to popup'
+  return render_template('viewAppointments.html',title=title, messages=messages)
+
+@appointment_blueprint.route('/edit/<id>',methods = ['GET','POST'])
+#@login_required
+def editAppointment (id):
+  title = 'Natural Solutions Herbal Clinic | View Appointments'
+  messages = ''
+  messages = 'Edit appointments messages to popup'
+  return render_template('editAppointment.html',title=title, id=id, messages=messages)
+
+@appointment_blueprint.route('/delete/<id>',methods = ['GET','POST'])
+#@login_required
+def deleteAppointment (id):
+  title = 'Natural Solutions Herbal Clinic | Delete Appointments'
+  messages = ''
+  messages = 'Delete appointments messages to popup'
+  return render_template('deleteAppointment.html',title=title, id=id, messages=messages)

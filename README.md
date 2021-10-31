@@ -68,8 +68,10 @@
 
 ### View Appointments
 
+### Edit Appointment
+
+### Delete Appointments
 
 ## Cashier
 ### Prices
 
-### View Appointments
