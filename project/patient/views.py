@@ -98,7 +98,9 @@ def captureVitals ():
 #@login_required
 def viewPatients ():
   title = 'Natural Solutions Herbal Clinic | View Patients'
-  return render_template('viewPatients.html',title=title)
+  messages = ''
+  messages = 'View Patients messages to popup'
+  return render_template('viewPatients.html',title=title, messages=messages)
 
 
 @patient_blueprint.route('/edit/<id>',methods = ['GET','POST'])

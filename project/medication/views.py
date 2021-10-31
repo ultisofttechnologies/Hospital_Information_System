@@ -23,11 +23,39 @@ medication_blueprint = Blueprint('medication',__name__,template_folder='template
 #@login_required
 def newMedication ():
   title = 'Natural Solutions Herbal Clinic | New Medication'
-  return render_template('newMedication.html',title=title)
+  messages = ''
+  messages = 'New Medication messages to popup'
+  return render_template('newMedication.html',title=title, messages=messages)
 
 
-@medication_blueprint.route('/view_medications',methods = ['GET','POST'])
+@medication_blueprint.route('/completed_medications',methods = ['GET','POST'])
 #@login_required
-def viewMedications ():
-  title = 'Natural Solutions Herbal Clinic | View Medications'
-  return render_template('viewMedications.html',title=title)
+def completedMedications ():
+  title = 'Natural Solutions Herbal Clinic | Completed Medications'
+  messages = ''
+  messages = 'Completed Medications messages to popup'
+  return render_template('completedMedications.html',title=title, messages=messages)
+
+@medication_blueprint.route('/requested_medications',methods = ['GET','POST'])
+#@login_required
+def requestedMedications ():
+  title = 'Natural Solutions Herbal Clinic | Requested Medications'
+  messages = ''
+  messages = 'Requested Medications messages to popup'
+  return render_template('requestedMedications.html',title=title, messages=messages)
+
+@medication_blueprint.route('/edit/<id>',methods = ['GET','POST'])
+#@login_required
+def editMedication (id):
+  title = 'Natural Solutions Herbal Clinic | Edit Medication'
+  messages = ''
+  messages = 'Edit Medications messages to popup'
+  return render_template('editMedication.html',title=title, id=id, messages=messages)
+
+@medication_blueprint.route('/delete/<id>',methods = ['GET','POST'])
+#@login_required
+def deleteMedication (id):
+  title = 'Natural Solutions Herbal Clinic | Delete Medication'
+  messages = ''
+  messages = 'Delete Medication messages to popup'
+  return render_template('deleteMedication.html',title=title, id=id, messages=messages)

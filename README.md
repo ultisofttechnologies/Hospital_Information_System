@@ -74,7 +74,18 @@
 
 ### Edit Appointment
 
-### Delete Appointments
+### Delete Appointment
+
+
+## Medication
+### Add Medication
+
+### View Medications
+
+### Edit Medication
+
+### Delete Medication
+
 
 ## Cashier
 ### Prices
