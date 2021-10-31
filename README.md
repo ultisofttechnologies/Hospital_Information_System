@@ -62,6 +62,10 @@
 
 ### View Patients
 
+### Edit Patient
+
+### Delete Patient
+
 
 ## Appointment
 ### Add Appointment
