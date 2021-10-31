@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block main %}
+  <h3><i class="fa fa-angle-right"></i> Drugs</h3>
+  <div>
+    <table id="example" class="table table-bordered">
+      <thead>
+          <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Price(GHS)</th>
+              <th>Last Request</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>1</td>
+              <td>Pumpset Kangaroo 1000ml</td>
+              <td>300</td>
+              <td>5.00</td>
+              <td>9/22/2021</td>
+              <td>
+                <button class="btn btn-small btn-theme">Edit</button>
+                <button class="btn btn-small btn-danger">Delete</button>
+              </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Cefazolin 500mg vial (Hazolin)</td>
+            <td>450</td>
+            <td>56.00</td>
+            <td>10/22/2021</td>
+            <td>
+              <button class="btn btn-small btn-theme">Edit</button>
+              <button class="btn btn-small btn-danger">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Midazolam</td>
+            <td>100</td>
+            <td>16.00</td>
+            <td>9/22/2019</td>
+            <td>
+              <button class="btn btn-small btn-theme">Edit</button>
+              <button class="btn btn-small btn-danger">Delete</button>
+            </td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+{% endblock %}

@@ -26,7 +26,19 @@ login_manager.login_view = 'manager.login'
 from project.manager.views import manager_blueprint
 from project.patient.views import patient_blueprint
 from project.staff.views import staff_blueprint
+from project.appointment.views import appointment_blueprint
+from project.medication.views import medication_blueprint
+from project.imaging.views import imaging_blueprint
+from project.laboratory.views import laboratory_blueprint
+from project.accounts.views import accounts_blueprint
+from project.inventory.views import inventory_blueprint
 
 app.register_blueprint (manager_blueprint,url_prefix='/manager')
 app.register_blueprint (patient_blueprint,url_prefix='/patient')
 app.register_blueprint (staff_blueprint,url_prefix='/staff')
+app.register_blueprint (appointment_blueprint,url_prefix='/appointment')
+app.register_blueprint (medication_blueprint,url_prefix='/medication')
+app.register_blueprint (imaging_blueprint,url_prefix='/imaging')
+app.register_blueprint (laboratory_blueprint,url_prefix='/laboratory')
+app.register_blueprint (accounts_blueprint,url_prefix='/accounts')
+app.register_blueprint (inventory_blueprint,url_prefix='/inventory')
