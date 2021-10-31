@@ -25,9 +25,30 @@ def newImaging ():
   title = 'Natural Solutions Herbal Clinic | New Imaging'
   return render_template('newImaging.html',title=title)
 
-
-@imaging_blueprint.route('/view_imaging',methods = ['GET','POST'])
+@imaging_blueprint.route('/requested_imagings',methods = ['GET','POST'])
 #@login_required
-def viewImaging ():
-  title = 'Natural Solutions Herbal Clinic | View Imaging'
-  return render_template('viewImaging.html',title=title)
+def requestedImaging ():
+  title = 'Natural Solutions Herbal Clinic | Requested Imagings'
+  return render_template('requestedImagings.html',title=title)
+
+@imaging_blueprint.route('/completed_imagings',methods = ['GET','POST'])
+#@login_required
+def completedImaging ():
+  title = 'Natural Solutions Herbal Clinic | Completed Imaging'
+  return render_template('completedImagings.html',title=title)
+
+@imaging_blueprint.route('/edit/<id>',methods = ['GET','POST'])
+#@login_required
+def editImaging (id):
+  title = 'Natural Solutions Herbal Clinic | Edit Imaging'
+  messages = ''
+  messages = 'Edit Imaging messages to popup'
+  return render_template('editImaging.html',title=title, id=id, messages=messages)
+
+@imaging_blueprint.route('/delete/<id>',methods = ['GET','POST'])
+#@login_required
+def deleteImaging (id):
+  title = 'Natural Solutions Herbal Clinic | Delete Imaging'
+  messages = ''
+  messages = 'Delete Imaging messages to popup'
+  return render_template('deleteImaging.html',title=title, id=id, messages=messages)

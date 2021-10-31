@@ -80,12 +80,25 @@
 ## Medication
 ### Add Medication
 
-### View Medications
+### Completed Medications
+
+### Requested Medications
 
 ### Edit Medication
 
 ### Delete Medication
 
+
+## Labs
+### Add Lab
+
+### Completed Lab
+
+### Requested Lab
+
+### Edit Lab
+
+### Delete Lab
 
 ## Cashier
 ### Prices
