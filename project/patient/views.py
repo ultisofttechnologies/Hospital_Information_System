@@ -92,3 +92,24 @@ def captureVitals ():
     else:
         pass
     return render_template('captureVitals.html',all_patients=all_patients,title=title)
+
+
+@patient_blueprint.route('/view_patients',methods = ['GET','POST'])
+#@login_required
+def viewPatients ():
+  title = 'Natural Solutions Herbal Clinic | View Patients'
+  return render_template('viewPatients.html',title=title)
+
+
+@patient_blueprint.route('/new_appointment',methods = ['GET','POST'])
+#@login_required
+def newAppointment ():
+  title = 'Natural Solutions Herbal Clinic | New Appointment'
+  return render_template('newAppointment.html',title=title)
+
+
+@patient_blueprint.route('/view_appointments',methods = ['GET','POST'])
+#@login_required
+def viewAppointments ():
+  title = 'Natural Solutions Herbal Clinic | View Appointments'
+  return render_template('viewAppointments.html',title=title)

@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block main %}
+  <h3><i class="fa fa-angle-right"></i> View Appointments</h3>
+  <div>
+    <div>
+      <table id="example" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>With</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>9/22/2021</td>
+                <td>John Doe</td>
+                <td>Lab</td>
+                <td>Dr. <span>Ben Soffes</span></td>
+                <td>Attended</td>
+                <td>
+                  <button class="btn btn-small btn-theme">Edit</button>
+                  <button class="btn btn-small btn-danger">Delete</button>
+                </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>8/19/2021</td>
+              <td>Rudy Ofori</td>
+              <td>Consultation</td>
+              <td>Dr. <span>Ben Soffes</span></td>
+              <td>Scheduled</td>
+              <td>
+                <button class="btn btn-small btn-theme">Edit</button>
+                <button class="btn btn-small btn-danger">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>9/22/2021</td>
+              <td>Vivian Jackson</td>
+              <td>Imaging</td>
+              <td>Dr. <span>Ben Soffes</span></td>
+              <td>Cancelled</td>
+              <td>
+                <button class="btn btn-small btn-theme">Edit</button>
+                <button class="btn btn-small btn-danger">Delete</button>
+              </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+{% endblock %}
