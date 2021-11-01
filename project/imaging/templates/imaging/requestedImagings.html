@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block main %}
+  <h3><i class="fa fa-angle-right"></i> Requested Imaging</h3>
+  <div>
+    <table id="example" class="table table-bordered bg-white p-4 mt-3">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Date</th>
+          <th>Requested By</th>
+          <th>Patient</th>
+          <th>Imaging Type</th>
+          <th>Note</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>P09901</td>
+            <td>9/22/2021</td>
+            <td>Dr. <span>Ben Soffes</span></td>
+            <td>John Doe</td>
+            <td>2 scans</td>
+            <td>Head Scan</td>
+            <td>
+              <button class="btn btn-small btn-theme">Edit</button>
+              <button class="btn btn-small btn-danger">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>P09901</td>
+            <td>9/22/2021</td>
+            <td>Dr. <span>Ben Soffes</span></td>
+            <td>John Doe</td>
+            <td>2 scans</td>
+            <td>Head Scan</td>
+            <td>
+              <button class="btn btn-small btn-theme">Edit</button>
+              <button class="btn btn-small btn-danger">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>P09901</td>
+            <td>9/22/2021</td>
+            <td>Dr. <span>Ben Soffes</span></td>
+            <td>John Doe</td>
+            <td>2 scans</td>
+            <td>Head Scan</td>
+            <td>
+              <button class="btn btn-small btn-theme">Edit</button>
+              <button class="btn btn-small btn-danger">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+{% endblock %}

@@ -98,18 +98,24 @@ def captureVitals ():
 #@login_required
 def viewPatients ():
   title = 'Natural Solutions Herbal Clinic | View Patients'
-  return render_template('viewPatients.html',title=title)
+  messages = ''
+  messages = 'View Patients messages to popup'
+  return render_template('viewPatients.html',title=title, messages=messages)
 
 
-@patient_blueprint.route('/new_appointment',methods = ['GET','POST'])
+@patient_blueprint.route('/edit/<id>',methods = ['GET','POST'])
 #@login_required
-def newAppointment ():
-  title = 'Natural Solutions Herbal Clinic | New Appointment'
-  return render_template('newAppointment.html',title=title)
+def editPatient (id):
+  title = 'Natural Solutions Herbal Clinic | Edit Patient'
+  messages = ''
+  messages = 'Edit Patient messages to popup'
+  return render_template('editPatient.html',title=title, messages=messages, id=id)
 
 
-@patient_blueprint.route('/view_appointments',methods = ['GET','POST'])
+@patient_blueprint.route('/delete/<id>',methods = ['GET','POST'])
 #@login_required
-def viewAppointments ():
-  title = 'Natural Solutions Herbal Clinic | View Appointments'
-  return render_template('viewAppointments.html',title=title)
+def deletePatient (id):
+  title = 'Natural Solutions Herbal Clinic | Delete Patient'
+  messages = ''
+  messages = 'Delete patient messages to popup'
+  return render_template('deletePatient.html',title=title, messages=messages, id=id)

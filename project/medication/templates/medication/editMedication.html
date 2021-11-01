@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block title %}{{title}}{% endblock %}
 {% block main %}
-  <h3><i class="fa fa-angle-right"></i> New Medication</h3>
+  <h3><i class="fa fa-angle-right"></i> Edit Medication</h3>
   <div>
     <form class="row g-3 bg-white p-4 mt-3" method="post">
       <div class="col-md-4">
@@ -20,7 +20,7 @@
       </div>
       <div class="col-md-12">
         <label for="Medication" class="form-label">Medication</label>
-        <textarea class="form-control" rows="6" required></textarea>
+        <textarea class="form-control" rows="6" value=""></textarea>
       </div>
 
       <div class="col-md-4">
@@ -35,16 +35,16 @@
 
       <div class="col-md-4">
         <label for="status" class="form-label">Status</label>
-        <select class="form-control" aria-label="Default select example" name="status">
+        <select class="form-control" aria-label="Default select example" name="status" >
+          <option value=""></option>
           <option value="fulfilled">Fulfilled</option>
           <option value="requested">Requested</option>
         </select>
       </div>
 
       <div class="col-md-3">
-        <button type="submit" name="submit" class="btn btn-small btn-theme">Add Medication</button>
+        <button type="submit" name="submit" class="btn btn-small btn-theme">Update Medication</button>
         <button type="submit" name="submit" class="btn btn-small btn-danger">Cancel</button>
-
       </div>
 
     </form>

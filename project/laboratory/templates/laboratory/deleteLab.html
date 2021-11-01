@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block main %}
+  <h3><i class="fa fa-angle-right"></i> Delete Lab</h3>
+  <div>
+    <form class="row g-3 bg-white p-4 mt-3" method="post">
+        <div class="col-md-4">
+          <label for="patientCode" class="form-label">Patient Code: </label>
+          <span>{{id}}</span>
+        </div>
+        <div class="col-md-4">
+          <label for="patientCode" class="form-label">Patient Name: </label>
+          <span>Joye</span>
+          <span>Kwasi</span>
+          <span>Bonzie</span>
+        </div>
+        <div class="col-md-4">
+          <label for="sex" class="form-label">Sex: </label>
+          <span>Male</span>
+        </div>
+        <div class="col-md-4">
+          <label for="labType" class="form-label">Lab Type:</label>
+          <span>Blood Count</span>
+        </div>
+  
+        <div class="col-md-4">
+          <label for="priscribedBy" class="form-label">Doctor's Name</label>
+          <span>Dr. Ben Soffes</span>
+        </div>
+
+        <div class="col-md-4">
+          <label for="requestedDate" class="form-label">Requested Date</label>
+          <span>11/24/2021</span>
+        </div>
+  
+        <div class="col-md-12">
+          <label for="note" class="form-label">Note</label>
+          <textarea class="form-control" rows="6"></textarea>
+        </div>
+        <div class="col-md-12">
+          Click YES to confirm
+          <button type = "submit" class="btn btn-danger mx-3">Yes</button>
+          <a href='#' class="btn btn-small btn-theme">Cancel</a>
+        </div>
+    </form>
+  </div>
+{% endblock %}

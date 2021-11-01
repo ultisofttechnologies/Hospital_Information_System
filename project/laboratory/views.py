@@ -21,13 +21,41 @@ laboratory_blueprint = Blueprint('laboratory',__name__,template_folder='template
 
 @laboratory_blueprint.route('/new_lab',methods = ['GET','POST'])
 #@login_required
-def newLaboratory ():
+def newLabs ():
   title = 'Natural Solutions Herbal Clinic | New Laboratory'
-  return render_template('newLab.html',title=title)
+  messages = ''
+  messages = 'New Laboratory messages to popup'
+  return render_template('newLab.html',title=title, messages=messages)
 
-
-@laboratory_blueprint.route('/view_labs',methods = ['GET','POST'])
+@laboratory_blueprint.route('/requested_labs',methods = ['GET','POST'])
 #@login_required
-def viewLaboratorys ():
-  title = 'Natural Solutions Herbal Clinic | View Laboratorys'
-  return render_template('viewLabs.html',title=title)
+def requestedLabs ():
+  title = 'Natural Solutions Herbal Clinic | Requested Laboratorys'
+  messages = ''
+  messages = 'Requested Laboratorys messages to popup'
+  return render_template('requestedLabs.html',title=title, messages=messages)
+
+@laboratory_blueprint.route('/completed_labs',methods = ['GET','POST'])
+#@login_required
+def completedLabs ():
+  title = 'Natural Solutions Herbal Clinic | Completed Laboratorys'
+  messages = ''
+  messages = 'Completed Laboratorys messages to popup'
+  return render_template('completedLabs.html',title=title, messages=messages)
+
+@laboratory_blueprint.route('/edit/<id>',methods = ['GET','POST'])
+#@login_required
+def editLab (id):
+  title = 'Natural Solutions Herbal Clinic | Edit Lab'
+  messages = ''
+  messages = 'Edit Lab messages to popup'
+  return render_template('editLab.html',title=title, id=id, messages=messages)
+
+@laboratory_blueprint.route('/delete/<id>',methods = ['GET','POST'])
+#@login_required
+def deleteLab (id):
+  title = 'Natural Solutions Herbal Clinic | Delete Lab'
+  messages = ''
+  messages = 'Delete Lab messages to popup'
+  return render_template('deleteLab.html',title=title, id=id, messages=messages)
+

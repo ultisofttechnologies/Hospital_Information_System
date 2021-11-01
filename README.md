@@ -62,14 +62,44 @@
 
 ### View Patients
 
+### Edit Patient
+
+### Delete Patient
+
 
 ## Appointment
 ### Add Appointment
 
 ### View Appointments
 
+### Edit Appointment
+
+### Delete Appointment
+
+
+## Medication
+### Add Medication
+
+### Completed Medications
+
+### Requested Medications
+
+### Edit Medication
+
+### Delete Medication
+
+
+## Labs
+### Add Lab
+
+### Completed Lab
+
+### Requested Lab
+
+### Edit Lab
+
+### Delete Lab
 
 ## Cashier
 ### Prices
 
-### View Appointments
