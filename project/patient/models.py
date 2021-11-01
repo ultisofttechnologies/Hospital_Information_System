@@ -18,6 +18,7 @@ class Patient (db.Model):
     phone = db.Column(db.String(15))
     patientDate = db.Column(db.DateTime,nullable=False)
     vitals_id = db.Column(db.Integer,db.ForeignKey('vitals.id'))
+    appointment_id = db.Column(db.Integer,db.ForeignKey('appointment.id'))
     emergencyName = db.Column(db.String(30),nullable=False)
     emergencyPhone = db.Column(db.String(15),nullable=False)
     relationshiptoemergencycontact = db.Column(db.String(15))
@@ -43,3 +44,20 @@ class Vitals(db.Model):
     def __init__(self, patient_id,staff_id):
         self.patient_id = patient_id
         self.staff_id = staff_id
+
+class Appointment (db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    patient_id = db.Column(db.Integer,db.ForeignKey('patient.id'),nullable=False)
+    staff_id = db.Column(db.Integer,db.ForeignKey('staff.id'),nullable=False)
+    time = db.Column(db.DateTime,nullable=False)
+    status = db.Column(db.Integer)
+    def __init__(self, patient_id,staff_id,time):
+        self.patient_id = patient_id
+        self.staff_id = staff_id
+        self.time = time
+
+class Charges (db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    patient_id = db.Column(db.Integer,db.ForeignKey('patient.id'),nullable=False)
+    staff_id = db.Column(db.Integer,db.ForeignKey('staff.id'),nullable=False)
+    

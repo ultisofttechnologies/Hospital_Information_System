@@ -1,0 +1,34 @@
+alembic==1.5.8
+certifi==2020.12.5
+chardet==4.0.0
+click @ file:///home/linux1/recipes/ci/click_1610990599742/work
+Flask @ file:///home/ktietz/src/ci/flask_1611932660458/work
+Flask-Cors==3.0.10
+Flask-Login==0.5.0
+Flask-Migrate==2.7.0
+Flask-PyMongo==2.3.0
+Flask-SQLAlchemy==2.5.1
+greenlet==1.0.0
+gunicorn==20.1.0
+idna==2.10
+itsdangerous @ file:///home/ktietz/src/ci/itsdangerous_1611932585308/work
+Jinja2 @ file:///tmp/build/80754af9/jinja2_1612213139570/work
+jsonpickle==2.0.0
+Mako==1.1.4
+MarkupSafe @ file:///C:/ci/markupsafe_1607027406824/work
+numpy==1.21.0
+pdfkit==0.6.1
+psycopg2-binary==2.8.6
+PyJWT==1.7.1
+pymongo==3.11.4
+python-dateutil==2.8.1
+python-dotenv==0.17.0
+python-editor==1.0.4
+pytz==2021.1
+requests==2.25.1
+six==1.15.0
+SQLAlchemy==1.4.11
+twilio==6.57.0
+urllib3==1.26.4
+Werkzeug @ file:///home/ktietz/src/ci/werkzeug_1611932622770/work
+wincertstore==0.2
