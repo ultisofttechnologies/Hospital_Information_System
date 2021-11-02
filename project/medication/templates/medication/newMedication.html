@@ -17,17 +17,17 @@
       {% endblock%}
       <div class="col-md-4">
         <label for="patientCode" class="form-label">Patient Code</label>
-        <input type="text" class="form-control" name="firstname" value="">
+        <input type="text" class="form-control" name="firstname" value="" required>
+      </div>
+
+      <div class="col-md-4">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" name="lastname" value="" required>
       </div>
 
       <div class="col-md-4">
         <label for="firstname" class="form-label">First Name</label>
-        <input type="text" class="form-control" name="firstname" value="">
-      </div>
-
-      <div class="col-md-4">
-        <label for="firstname" class="form-label">First Name</label>
-        <input type="text" class="form-control" name="firstname" value="">
+        <input type="text" class="form-control" name="firstname" value="" required>
       </div>
       <div class="col-md-12">
         <label for="Medication" class="form-label">Medication</label>
@@ -36,17 +36,23 @@
 
       <div class="col-md-4">
         <label for="prescriptiondate" class="form-label">Prescription Date</label>
-        <input type="date" class="form-control" name="prescriptiondate">
+        <input type="date" class="form-control" name="prescriptiondate" required>
       </div>
 
       <div class="col-md-4">
         <label for="priscribedBy" class="form-label">Doctor's Name</label>
-        <input type="text" class="form-control" name="priscribedBy" value="">
+        <select name="doctoremail" class="form-control" aria-label="Default select example" name="doctoremail" required>
+          <option value="" selected="selected" hidden="hidden">Choose Doctor</option>
+          {% for d in alldoctors %}
+            <option value="{{d.name}} {{d.email}}">{{d.name}}---->{{d.specialization}}</option>
+          {% endfor %}
+        </select>
       </div>
 
       <div class="col-md-4">
         <label for="status" class="form-label">Status</label>
-        <select class="form-control" aria-label="Default select example" name="status">
+        <select class="form-control" aria-label="Default select example" name="status" required>
+          <option value="" selected="selected" hidden="hidden">Choose status</option>
           <option value="fulfilled">Fulfilled</option>
           <option value="requested">Requested</option>
         </select>
@@ -55,7 +61,6 @@
       <div class="col-md-3">
         <button type="submit" name="submit" class="btn btn-small btn-theme">Add Medication</button>
         <button type="submit" name="submit" class="btn btn-small btn-danger">Cancel</button>
-
       </div>
 
     </form>

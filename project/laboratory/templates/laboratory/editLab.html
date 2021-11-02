@@ -17,27 +17,32 @@
       {% endblock%}
       <div class="col-md-4">
         <label for="patientCode" class="form-label">Patient Code</label>
-        <input type="text" class="form-control" name="firstname" value="">
+        <input type="text" class="form-control" name="patientCode" value="" required>
       </div>
 
       <div class="col-md-4">
         <label for="firstname" class="form-label">First Name</label>
-        <input type="text" class="form-control" name="firstname" value="">
+        <input type="text" class="form-control" name="firstname" value="" required>
       </div>
 
       <div class="col-md-4">
         <label for="firstname" class="form-label">First Name</label>
-        <input type="text" class="form-control" name="firstname" value="">
+        <input type="text" class="form-control" name="firstname" value="" required>
       </div>
 
       <div class="col-md-6">
         <label for="labType" class="form-label">Lab Type</label>
-        <input type="date" class="form-control" name="prescriptiondate">
+        <input type="text" class="form-control" name="labType">
       </div>
 
       <div class="col-md-6">
-        <label for="priscribedBy" class="form-label">Doctor's Name</label>
-        <input type="text" class="form-control" name="priscribedBy" value="">
+        <label for="requesteddBy" class="form-label">Doctor's Name</label>
+        <select name="doctoremail">
+          <option value="{oldDoctor}" selected="selected">Old Doctor</option>
+          {% for d in alldoctors %}
+            <option value="{{d.name}} {{d.email}}">{{d.name}}</option>
+          {% endfor %}
+        </select>
       </div>
 
       <div class="col-md-12">
