@@ -3,7 +3,21 @@
 {% block main %}
   <h3><i class="fa fa-angle-right"></i> View Patients</h3>
   <div>
+<<<<<<< HEAD
     <form method="post">
+=======
+    {% block flashMessages %}
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li class="text-danger p-2">{{ message }}</li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+      {% endblock%}
+>>>>>>> c9af5e193be74be365d0bd97fe15272680585cc8
     <table id="example" class="table table-striped bg-white p-4 mt-3">
       <thead>
           <tr>
