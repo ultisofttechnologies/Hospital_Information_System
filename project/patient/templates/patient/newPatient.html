@@ -4,6 +4,17 @@
   <h3><i class="fa fa-angle-right"></i> Register a Patient</h3>
   <div>
     <form class="row g-3 bg-white p-4 mt-3" method="post">
+      {% block flashMessages %}
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li class="text-danger p-2">{{ message }}</li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+      {% endblock%}
       <div class="col-md-4">
         <label for="firstname" class="form-label">First Name</label>
         <input type="text" class="form-control" name="firstname" required>

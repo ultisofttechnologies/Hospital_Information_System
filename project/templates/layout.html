@@ -142,6 +142,9 @@
       <section id="main-content">
         <section class="wrapper p-4">
           {% block main %}
+          {% block flashMessages %}
+            <p>flash messages</p>
+          {% endblock%}
             <h1>Add Main Content here</h1> 
           {% endblock %}
         </section>
