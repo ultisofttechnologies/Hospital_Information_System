@@ -245,9 +245,9 @@ table.display tr.even.gradeU {
 }
 
 
-tr.odd {
+/* tr.odd {
 	background-color: #E2E4FF;
-}
+} */
 
 tr.even {
 	background-color: white;
@@ -352,20 +352,20 @@ td.details {
 	background-color: #99B3FF;
 }
 
-table.display tr.even.row_selected td {
+/* table.display tr.even.row_selected td {
 	background-color: #B0BED9;
-}
+} */
 
-table.display tr.odd.row_selected td {
+/* table.display tr.odd.row_selected td {
 	background-color: #9FAFD1;
-}
+} */
 
 
 /*
  * Sorting classes for columns
  */
 /* For the standard odd/even */
-tr.odd td.sorting_1 {
+/* tr.odd td.sorting_1 {
 	background-color: #D3D6FF;
 }
 
@@ -387,7 +387,7 @@ tr.even td.sorting_2 {
 
 tr.even td.sorting_3 {
 	background-color: #F9F9FF;
-}
+} */
 
 
 /* For the Conditional-CSS grading rows */
@@ -400,7 +400,7 @@ tr.even td.sorting_3 {
 	  dd > d1
 	  ee > e2
  */
-tr.odd.gradeA td.sorting_1 {
+/* tr.odd.gradeA td.sorting_1 {
 	background-color: #c4ffc4;
 }
 
@@ -495,12 +495,12 @@ tr.even.gradeU td.sorting_2 {
 tr.even.gradeU td.sorting_3 {
 	background-color: #e2e2e2;
 }
-
+ */
 
 /*
  * Row highlighting example
  */
-.ex_highlight #example tbody tr.even:hover, #example tbody tr.even td.highlighted {
+/* .ex_highlight #example tbody tr.even:hover, #example tbody tr.even td.highlighted {
 	background-color: #ECFFB3;
 }
 
@@ -538,7 +538,7 @@ tr.even.gradeU td.sorting_3 {
 
 .ex_highlight_row #example tr.odd:hover td.sorting_3 {
 	background-color: #DBFF70;
-}
+} */
 
 
 /*

@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block main %}
+  <h3><i class="fa fa-angle-right"></i> Edit Patient</h3>
+  <div>
+    <form class="row g-3 bg-white p-4 mt-3" method="post">
+      <div class="col-md-4">
+        <label for="firstname" class="form-label">First Name</label>
+        <input type="text" class="form-control" name="firstname" value="">
+      </div>
+      <div class="col-md-4">
+        <label for="middlename" class="form-label">Middle Name</label>
+        <input type="text" class="form-control" name="middlename" value="">
+      </div>
+      <div class="col-md-4">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" name="lastname" value="">
+      </div>
+      <div class="col-md-2">
+        <label for="age" class="form-label">Age</label>
+        <input type="text" class="form-control" name="dateofbirth" value="">
+      </div>
+      <div class="col-md-4">
+        <label for="dateofbirth" class="form-label">Date of Birth</label>
+        <input type="date" class="form-control" name="dateofbirth" value="">
+      </div>
+      <div class="col-md-2">
+        <label for="sex" class="form-label">Sex</label>
+        <select class="form-select form-control" name="sex" aria-label="Default select example">
+          <option value=""></option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="maritalstatus" class="form-label">Marital Status</label>
+        <select class="form-select form-control" name="maritalstatus" aria-label="Default select example">
+          <option value=""></option>
+          <option value="single">Single</option>
+          <option value="married">Married</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="address" class="form-label">Address</label>
+        <input type="text" class="form-control" name="address" placeholder="1234 Main St" value="">
+      </div>
+      <div class="col-md-4">
+        <label for="city" class="form-label">City</label>
+        <input type="text" class="form-control" name="city" placeholder="Dohinaayilli" value="">
+      </div>
+      <div class="col-md-4">
+        <label for="region" class="form-label">Region</label>
+        <select id="inputState" class="form-select form-control" name="region">
+          <option value=""></option>
+          <option selected>Northern Region - Tamale</option>
+          <option>Oti Region - Dambai</option>
+          <option>Bono East Region - Techiman</option>
+          <option>Ahafo Region - Goaso</option>
+          <option>Bono Region - Sunyani</option>
+          <option>North East Region - Nalerigu</option>
+          <option>Savannah Region - Damango</option>
+          <option>Western North Region- Sefwi Wiawso</option>
+          <option>Western Region - Sekondi</option>
+          <option>Volta Region - Ho</option>
+          <option>Greater Accra Region - Accra</option>
+          <option>Eastern Region - Koforidua</option>
+          <option>Ashanti Region - Kumasi</option>
+          <option>Central Region - Cape Coast</option>
+          <option>Upper East Region - Bolgatanga</option>
+          <option>Upper West Region - Wa</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" name="phone" value="">
+      </div>
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email">
+      </div>
+      <div class="col-md-3">
+        <label for="emergencyName" class="form-label">Incase of Emergency (Name)</label>
+        <input type="text" class="form-control" name="emergencyName" value="">
+      </div>
+      <div class="col-md-3">
+        <label for="relationship" class="form-label">Relationship</label>
+        <input type="text" class="form-control" name="relationship" value="">
+      </div>
+      <div class="col-md-3">
+        <label for="emergencyPhone" class="form-label">Phone</label>
+        <input type="text" class="form-control" name="emergencyPhone" value="">
+      </div>
+      <div class="col-md-3">
+        <label for="emergencyEmail" class="form-label">Email</label>
+        <input type="text" class="form-control" name="emergencyEmail" value="">
+      </div>
+      <div class="col-md-3">
+        <button type="submit" name="submit" value="editPatient"class="btn btn-small btn-theme">Edit Patient</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block main %}
+  <h3><i class="fa fa-angle-right"></i> Edit Imaging</h3>
+  <div>
+    <form class="row g-3 bg-white p-4 mt-3" method="post">
+      <div class="col-md-12">
+        <label for="patientCode" class="form-label">Patient Code</label>
+        <input type="text" class="form-control" name="firstname" value="">
+      </div>
+
+      <label>Imaging Type:</label>
+
+      <div class="col-md-3">
+        <input type="checkbox" class="" name="covid" value="">
+        <label for="covid" class="form-label">Covid-19</label>
+      </div>
+
+      <div class="col-md-3">
+        <input type="checkbox" class="" name="" value="">
+        <label for="" class="form-label">CT Abdomen</label>
+      </div>
+
+      <div class="col-md-3">
+        <input type="checkbox" class="" name="" value="">
+        <label for="" class="form-label">Covid-19</label>
+      </div>
+
+      <div class="col-md-3">
+        <input type="checkbox" class="" name="covid" value="">
+        <label for="covid" class="form-label">Covid-19</label>
+      </div>
+
+      <div class="col-md-3">
+        <input type="checkbox" class="" name="covid" value="">
+        <label for="covid" class="form-label">Covid-19</label>
+      </div>
+
+      <div class="col-md-3">
+        <input type="checkbox" class="" name="" value="">
+        <label for="" class="form-label">CT Head</label>
+      </div>
+
+      <div class="col-md-3">
+        <input type="checkbox" class="" name="covid" value="">
+        <label for="covid" class="form-label">Covid-19</label>
+      </div>
+      <div class="col-md-3">
+        <input type="checkbox" class="" name="covid" value="">
+        <label for="covid" class="form-label">Covid-19</label>
+      </div>
+
+      <div class="col-md-3">
+        <button type="submit" name="submit" class="btn btn-small btn-theme">Update Imaging</button>
+        <button type="submit" name="submit" class="btn btn-small btn-danger">Cancel</button>
+      </div>
+  </div>
+{% endblock %}

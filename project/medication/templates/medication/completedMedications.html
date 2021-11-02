@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block main %}
+  <h3><i class="fa fa-angle-right"></i> Completed Medications</h3>
+  <div>
+    <table id="example" class="table table-bordered bg-white p-4 mt-3">
+      <thead>
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Patient</th>
+                <th>Prescriber</th>
+                <th>Medication</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>P09901</td>
+                <td>9/22/2021</td>
+                <td>John Doe</td>
+                <td>Dr. <span>Ben Soffes</span></td>
+                <td>Paracetamol</td>
+                <td>Fulfilled</td>
+            </tr>
+            <tr>
+              <td>P09908</td>
+              <td>9/22/2021</td>
+              <td>John Doe</td>
+              <td>Dr. <span>Ben Soffes</span></td>
+              <td>Paracetamol</td>
+              <td>Fulfilled</td>
+            </tr>
+            <tr>
+              <td>P08762</td>
+              <td>9/22/2021</td>
+              <td>John Doe</td>
+              <td>Dr. <span>Ben Soffes</span></td>
+              <td>Paracetamol</td>
+              <td>Fulfilled</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+{% endblock %}

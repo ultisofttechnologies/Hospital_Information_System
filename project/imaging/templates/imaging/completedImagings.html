@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block main %}
+  <h3><i class="fa fa-angle-right"></i> Completed Imaging</h3>
+  <div>
+    <table id="example" class="table table-bordered bg-white p-4 mt-3">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Date Requested</th>
+          <th>Date Completed</th>
+          <th>Requested By</th>
+          <th>Patient</th>
+          <th>Imaging Type</th>
+          <th>Results</th>
+          <th>Note</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>P09901</td>
+            <td>9/22/2021</td>
+            <td>9/22/2021</td>
+            <td>Dr. <span>Ben Soffes</span></td>
+            <td>John Doe</td>
+            <td>2 scans</td>
+            <td>A2</th>
+            <td>Head Scan</td>
+          </tr>
+          <tr>
+            <td>P09901</td>
+            <td>9/22/2021</td>
+            <td>9/22/2021</td>
+            <td>Dr. <span>Ben Soffes</span></td>
+            <td>John Doe</td>
+            <td>2 scans</td>
+            <td>A1</td>
+            <td>Head Scan</td>
+          </tr>
+          <tr>
+            <td>P09901</td>
+            <td>9/22/2021</td>
+            <td>9/22/2021</td>
+            <td>Dr. <span>Ben Soffes</span></td>
+            <td>John Doe</td>
+            <td>2 scans</td>
+            <td>A9</td>
+            <td>Head Scan</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+{% endblock %}

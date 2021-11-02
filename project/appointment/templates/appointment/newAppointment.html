@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block main %}
+  <h3><i class="fa fa-angle-right"></i> New Appointment</h3>
+  <div>
+    <form class="row g-3 bg-white p-4 mt-3" method="post">
+      <div class="col-md-4">
+        <label for="patientCode" class="form-label">Patient Code</label>
+        <input type="number" class="form-control" name="patientCode" required>
+      </div>
+      <div class="col-md-4">
+        <label for="firstname" class="form-label">First Name</label>
+        <input type="text" class="form-control" name="firstname" required>
+      </div>
+      <div class="col-md-4">
+        <label for="middlename" class="form-label">Middle Name</label>
+        <input type="text" class="form-control" name="middlename">
+      </div>
+      <div class="col-md-4">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" name="lastname" required>
+      </div>
+      <div class="col-md-2">
+        <label for="age" class="form-label">Age</label>
+        <input type="text" class="form-control" name="age" required>
+      </div>
+      <div class="col-md-4">
+        <label for="dateofbirth" class="form-label">Date of Birth</label>
+        <input type="date" class="form-control" name="dateofbirth" required>
+      </div>
+      <div class="col-md-2">
+        <label for="sex" class="form-label">Sex</label>
+        <select class="form-control" aria-label="Default select example" onchange="alert(this.value)" name="sex">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="selectDoctor" class="form-label block">Select a Doctor</label>
+        <select name="doctordetails" id="selectDoctor" class="form-control">
+          <option value="*">--Which Doctor??--</option>
+          {% for d in alldoctors %}
+            <option value="{{d.id}}">{{d.name}}---->{{d.specialization}}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="type" class="form-label">Type</label>
+        <select class="form-control" aria-label="Default select example" onchange="alert(this.value)" name="type">
+          <option value="consultation">Consultation</option>
+          <option value="medication">Medication</option>
+          <option value="imaging">Imaging</option>
+          <option value="lab">Lab</option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-control" aria-label="Default select example" onchange="alert(this.value)" name="status">
+          <option value="0">Scheduled</option>
+          <option value="1">Attended</option>
+          <option value="2">Cancelled</option>
+          <option value="3">Missed</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label for="appointmentdate" class="form-label">Appointment Date</label>
+        <input type="date" class="form-control" name="appointmentdate">
+      </div>
+
+      <div class="col-md-6">
+        <label for="appointmenttime" class="form-label">Appointment Time</label>
+        <input type="time" class="form-control" name="appointmenttime">
+      </div>
+
+      <div class="col-md-12">
+        <label for="note" class="form-label">Note</label>
+        <textarea class="form-control" name="note" rows="6"></textarea>
+      </div>
+
+      <div class="col-10 mt-4">
+        <button type="submit" name="submit" value="newAppointment" class="btn btn-small btn-theme">Add Appointment</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}
