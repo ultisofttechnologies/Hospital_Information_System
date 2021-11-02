@@ -17,7 +17,7 @@
       {% endblock%}
       <div class="col-md-4">
         <label for="patientCode" class="form-label">Patient Code</label>
-        <input type="text" class="form-control" name="patientCode" required>
+        <input type="number" class="form-control" name="patientCode" required>
       </div>
       <div class="col-md-4">
         <label for="firstname" class="form-label">First Name</label>
@@ -49,14 +49,14 @@
       </div>
       <div class="col-md-4">
         <label for="selectDoctor" class="form-label block">Select a Doctor</label>
-        <select name="doctoremail" class="form-control" required>
-          <option value="" selected="selected" hidden="hidden">Choose a Doctor</option>
+        <select name="doctordetails" id="selectDoctor" class="form-control">
+          <option value="*">--Which Doctor??--</option>
           {% for d in alldoctors %}
-            <option value="{{d.name}} {{d.email}}">{{d.name}}</option>
+            <option value="{{d.id}}">{{d.name}}---->{{d.specialization}}</option>
           {% endfor %}
         </select>
       </div>
-  
+
       <div class="col-md-4">
         <label for="type" class="form-label">Type</label>
         <select class="form-control" name="type">
@@ -70,12 +70,11 @@
 
       <div class="col-md-4">
         <label for="status" class="form-label">Status</label>
-        <select class="form-control" name="status" required>
-          <option value="" selected="selected" hidden="hidden">Choose status</option>
-          <option value="scheduled">Scheduled</option>
-          <option value="attended">Attended</option>
-          <option value="cancelled">Cancelled</option>
-          <option value="missed">Missed</option>
+        <select class="form-control" aria-label="Default select example" onchange="alert(this.value)" name="status">
+          <option value="0">Scheduled</option>
+          <option value="1">Attended</option>
+          <option value="2">Cancelled</option>
+          <option value="3">Missed</option>
         </select>
       </div>
 
@@ -91,11 +90,11 @@
 
       <div class="col-md-12">
         <label for="note" class="form-label">Note</label>
-        <textarea class="form-control" rows="6"></textarea>
+        <textarea class="form-control" name="note" rows="6"></textarea>
       </div>
-  
+
       <div class="col-10 mt-4">
-        <button type="submit" class="btn btn-small btn-theme">Add Appointment</button>
+        <button type="submit" name="submit" value="newAppointment" class="btn btn-small btn-theme">Add Appointment</button>
       </div>
     </form>
   </div>

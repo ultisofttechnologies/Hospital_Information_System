@@ -8,6 +8,7 @@ from flask_cors import CORS
 from project import ALLOWED_EXTENSIONS
 from werkzeug.utils import secure_filename
 from project.staff.models import Staff
+from project.patient.models import Appointment
 from datetime import date,datetime,timedelta
 from sqlalchemy import extract,text,func,and_,desc,asc
 from dateutil.relativedelta import relativedelta
@@ -23,7 +24,33 @@ appointment_blueprint = Blueprint('appointment',__name__,template_folder='templa
 #@login_required
 def newAppointment ():
   title = 'Natural Solutions Herbal Clinic | New Appointment'
-  return render_template('newAppointment.html',title=title)
+  messages = ''
+  messages = 'View appointments messages to popup'
+  alldoctors = Staff.query.filter_by(role='Doctor').order_by(asc(Staff.firstname)).all()
+  if request.method == 'POST':
+      if request.form['submit'] == 'newAppointment':
+          patientCode = int(request.form['patientCode'])
+          doctor = int(request.form['doctordetails'])
+          status = int(request.form['status'])
+          note = request.form['note']
+          appointmenttime = request.form['appointmenttime']
+          appointmentdate = request.form['appointmentdate']
+          appointmenttime = datetime.strptime(appointmenttime,'%H:%M:%S')
+          appointmentdate = datetime.strptime(appointmentdate,'%Y-%m-%d')
+          type = request.form['type']
+          appointmenttime = datetime.datetime.combine(appointmentdate,appointtime)
+          newAppointment = Appointment(patientCode,doctor,1,datetime.utcnow(),appointmenttime,status,note)
+          newAppointment.type = type
+          db.session.add(newAppointment)
+          db.session.commit()
+          doctor = Staff.query.get(doctor)
+          text = 'Appointment with Dr. ' + doctor.firstname + ' ' + doctor.middlename + ' ' + doctor.lastname + ' ' + ' added successfully.'
+          flash(text)
+      else:
+          pass
+  else:
+      pass
+  return render_template('newAppointment.html',title=title,alldoctors=alldoctors)
 
 
 @appointment_blueprint.route('/view_appointments',methods = ['GET','POST'])
@@ -31,8 +58,16 @@ def newAppointment ():
 def viewAppointments ():
   title = 'Natural Solutions Herbal Clinic | View Appointments'
   messages = ''
-  messages = 'View appointments messages to popup'
-  return render_template('viewAppointments.html',title=title, messages=messages)
+  messages = 'Showing most recent appointments ...'
+  appointments = Appointment.query.order_by(asc(Appointment.booking_time)).all()
+  if request.method == 'POST':
+      if request.form['submit'] == 'viewAppointment':
+          pass
+      else:
+          pass
+  else:
+      pass
+  return render_template('viewAppointments.html',appointments=appointments,title=title, messages=messages)
 
 @appointment_blueprint.route('/edit/<id>',methods = ['GET','POST'])
 #@login_required

@@ -3,6 +3,9 @@
 {% block main %}
   <h3><i class="fa fa-angle-right"></i> View Patients</h3>
   <div>
+<<<<<<< HEAD
+    <form method="post">
+=======
     {% block flashMessages %}
         {% with messages = get_flashed_messages() %}
           {% if messages %}
@@ -14,6 +17,7 @@
           {% endif %}
         {% endwith %}
       {% endblock%}
+>>>>>>> c9af5e193be74be365d0bd97fe15272680585cc8
     <table id="example" class="table table-striped bg-white p-4 mt-3">
       <thead>
           <tr>
@@ -27,162 +31,24 @@
           </tr>
       </thead>
       <tbody>
+
+          {% for x in all_patients %}
           <tr>
-            <td>P00001</td>
-            <td>Louisa</td>
-            <td>Smith</td>
-            <td>Female</td>
-            <td>09/07/2002</td>
-            <td>Normal</td>
+            <td>{{x.id}}</td>
+            <td>{{x.firstname}}</td>
+            <td>{{x.middlename}}</td>
+            <td>{{x.sex}}</td>
+            <td>{{x.dateofbirth}}</td>
+            <td>{{x.status}}</td>
             <td>
-              <button class="btn btn-small btn-theme">Edit</button>
-              <button class="btn btn-small btn-secondary">CheckIn</button>
-              <button class="btn btn-small btn-danger">Delete</button>
+              <button type="submit" class="btn btn-small btn-theme" name="submit"  value="edit{{x.id}}">Edit</button>
+              <button class="btn btn-small btn-secondary" name="submit" type="submit" value="checkin{{x.id}}">CheckIn</button>
+              <button class="btn btn-small btn-danger" name="submit" type="submit" value="delete{{x.id}}">Delete</button>
             </td>
           </tr>
-          <tr>
-            <td>P00002</td>
-            <td>Kenneth</td>
-            <td>Ayabo</td>
-            <td>Male</td>
-            <td>09/07/1992</td>
-            <td>Stable</td>
-            <td>
-              <button class="btn btn-small btn-theme">Edit</button>
-              <button class="btn btn-small btn-secondary">CheckIn</button>
-              <button class="btn btn-small btn-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>P00003</td>
-            <td>Adibaji</td>
-            <td>Kokoaio</td>
-            <td>Male</td>
-            <td>02/07/1898</td>
-            <td>Normal</td>
-            <td>
-              <button class="btn btn-small btn-theme">Edit</button>
-              <button class="btn btn-small btn-secondary">CheckIn</button>
-              <button class="btn btn-small btn-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>P00004</td>
-            <td>Akwasi</td>
-            <td>Bob</td>
-            <td>Male</td>
-            <td>01/05/1998</td>
-            <td>Deceased</td>
-            <td>
-              <button class="btn btn-small btn-theme">Edit</button>
-              <button class="btn btn-small btn-secondary">CheckIn</button>
-              <button class="btn btn-small btn-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>P00005</td>
-            <td>Joel</td>
-            <td>Biibbina</td>
-            <td>Male</td>
-            <td>09/07/2007</td>
-            <td>Normal</td>
-            <td>
-              <button class="btn btn-small btn-theme">Edit</button>
-              <button class="btn btn-small btn-secondary">CheckIn</button>
-              <button class="btn btn-small btn-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>P00006</td>
-            <td>Jayson</td>
-            <td>Akoh</td>
-            <td>Male</td>
-            <td>01/07/2006</td>
-            <td>Normal</td>
-            <td>
-              <button class="btn btn-small btn-theme">Edit</button>
-              <button class="btn btn-small btn-secondary">CheckIn</button>
-              <button class="btn btn-small btn-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>P00007</td>
-            <td>Adjoa</td>
-            <td>Adjei</td>
-            <td>Female</td>
-            <td>09/07/1999</td>
-            <td>Stable</td>
-            <td>
-              <button class="btn btn-small btn-theme">Edit</button>
-              <button class="btn btn-small btn-secondary">CheckIn</button>
-              <button class="btn btn-small btn-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>P00008</td>
-            <td>Kenneth</td>
-            <td>Ayabo</td>
-            <td>Male</td>
-            <td>09/07/1992</td>
-            <td>Stable</td>
-            <td>
-              <button class="btn btn-small btn-theme">Edit</button>
-              <button class="btn btn-small btn-secondary">CheckIn</button>
-              <button class="btn btn-small btn-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>P00009</td>
-            <td>Adibaji</td>
-            <td>Kokoaio</td>
-            <td>Male</td>
-            <td>02/07/1898</td>
-            <td>Normal</td>
-            <td>
-              <button class="btn btn-small btn-theme">Edit</button>
-              <button class="btn btn-small btn-secondary">CheckIn</button>
-              <button class="btn btn-small btn-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>P000010</td>
-            <td>Akwasi</td>
-            <td>Bob</td>
-            <td>Male</td>
-            <td>01/05/1998</td>
-            <td>Deceased</td>
-            <td>
-              <button class="btn btn-small btn-theme">Edit</button>
-              <button class="btn btn-small btn-secondary">CheckIn</button>
-              <button class="btn btn-small btn-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>P000011</td>
-            <td>Joel</td>
-            <td>Biibbina</td>
-            <td>Male</td>
-            <td>09/07/2007</td>
-            <td>Normal</td>
-            <td>
-              <button class="btn btn-small btn-theme">Edit</button>
-              <button class="btn btn-small btn-secondary">CheckIn</button>
-              <button class="btn btn-small btn-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>P000012</td>
-            <td>Adiza</td>
-            <td>Biano</td>
-            <td>Female</td>
-            <td>01/07/2006</td>
-            <td>Normal</td>
-            <td>
-              <button class="btn btn-small btn-theme">Edit</button>
-              <button class="btn btn-small btn-secondary">CheckIn</button>
-              <button class="btn btn-small btn-danger">Delete</button>
-            </td>
-          </tr>
+          {% endfor %}
+
+
       </tbody>
       <tfoot>
           <tr>
@@ -196,4 +62,5 @@
           </tr>
       </tfoot>
     </table>
+      </form>
 {% endblock %}
