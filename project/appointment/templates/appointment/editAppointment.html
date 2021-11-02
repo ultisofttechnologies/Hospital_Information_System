@@ -51,26 +51,26 @@
       </div>
       <div class="col-md-2">
         <label for="sex" class="form-label">Sex</label>
-        <select class="form-control" aria-label="Default select example" onchange="alert(this.value)" name="sex">
-          <option value=""></option>
+        <select class="form-control" name="sex" required>
+          <option value="oldValue">Old value</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
       </div>
       <div class="col-md-4">
         <label for="selectDoctor" class="form-label block">Select a Doctor</label>
-        <select name="doctoremail" class="form-control">
-          <option value=""></option>
+        <select name="doctoremail" class="form-control" required>
+          <option value="oldValue">Old value</option>
           {% for d in alldoctors %}
-            <option value="{{d.name}} {{d.email}}">{{d.name}}---->{{d.specialization}}</option>
+            <option value="{{d.name}} {{d.email}}">{{d.name}}</option>
           {% endfor %}
         </select>
       </div>
   
       <div class="col-md-4">
         <label for="type" class="form-label">Type</label>
-        <select class="form-control" aria-label="Default select example" onchange="alert(this.value)" name="type">
-          <option value=""></option>
+        <select class="form-control" name="type">
+          <option value="oldValue">Old value</option>
           <option value="consultation">Consultation</option>
           <option value="medication">Medication</option>
           <option value="imaging">Imaging</option>
@@ -80,8 +80,8 @@
 
       <div class="col-md-4">
         <label for="status" class="form-label">Status</label>
-        <select class="form-control" aria-label="Default select example" onchange="alert(this.value)" name="status">
-          <option value=""></option>
+        <select class="form-control" name="status" required>
+          <option value="oldValue">Old value</option>
           <option value="scheduled">Scheduled</option>
           <option value="attended">Attended</option>
           <option value="cancelled">Cancelled</option>

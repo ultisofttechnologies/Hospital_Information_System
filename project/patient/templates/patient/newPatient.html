@@ -37,14 +37,16 @@
       </div>
       <div class="col-md-2">
         <label for="sex" class="form-label">Sex</label>
-        <select class="form-select form-control" name="sex" aria-label="Default select example">
+        <select class="form-select form-control" name="sex" required>
+          <option value="" selected="selected" hidden="hidden">Choose sex</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
       </div>
       <div class="col-md-4">
         <label for="maritalstatus" class="form-label">Marital Status</label>
-        <select class="form-select form-control" name="maritalstatus" aria-label="Default select example">
+        <select class="form-select form-control" name="maritalstatus" required>
+          <option value="" selected="selected" hidden="hidden">Choose marital status</option>
           <option value="single">Single</option>
           <option value="married">Married</option>
         </select>
@@ -55,12 +57,13 @@
       </div>
       <div class="col-md-4">
         <label for="city" class="form-label">City</label>
-        <input type="text" class="form-control" name="city" placeholder="Dohinaayilli">
+        <input type="text" class="form-control" name="city" placeholder="Dohinaayilli" required>
       </div>
       <div class="col-md-4">
         <label for="region" class="form-label">Region</label>
-        <select id="inputState" class="form-select form-control" name="region">
-          <option selected>Northern Region - Tamale</option>
+        <select id="inputState" class="form-select form-control" name="region" required>
+          <option value="" selected="selected" hidden="hidden">Choose region</option>
+          <option>Northern Region - Tamale</option>
           <option>Oti Region - Dambai</option>
           <option>Bono East Region - Techiman</option>
           <option>Ahafo Region - Goaso</option>
@@ -92,7 +95,15 @@
       </div>
       <div class="col-md-3">
         <label for="relationship" class="form-label">Relationship</label>
-        <input type="text" class="form-control" name="relationship" required>
+        <select class="form-control" name="relationship" required>
+          <option value="" selected="selected" hidden="hidden">Choose relationship</option>
+          <option value="mother">Mother</option>
+          <option value="father">Father</option>
+          <option value="sibling">Sibling</option>
+          <option value="friend">Friend</option>
+          <option value="other_family">Other Family</option>
+          <option value="other_other">Other other</option>
+        </select>
       </div>
       <div class="col-md-3">
         <label for="emergencyPhone" class="form-label">Phone</label>
