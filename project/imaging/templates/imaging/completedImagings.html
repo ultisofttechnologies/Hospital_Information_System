@@ -3,6 +3,17 @@
 {% block main %}
   <h3><i class="fa fa-angle-right"></i> Completed Imaging</h3>
   <div>
+    {% block flashMessages %}
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li class="text-danger p-2">{{ message }}</li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+      {% endblock%}
     <table id="example" class="table table-bordered bg-white p-4 mt-3">
       <thead>
         <tr>
