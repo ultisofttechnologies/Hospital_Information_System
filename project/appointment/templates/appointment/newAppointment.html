@@ -41,7 +41,8 @@
       </div>
       <div class="col-md-2">
         <label for="sex" class="form-label">Sex</label>
-        <select class="form-control" aria-label="Default select example" onchange="alert(this.value)" name="sex">
+        <select class="form-control" name="sex" required>
+          <option value="" selected="selected" hidden="hidden">Choose sex</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
@@ -58,7 +59,8 @@
 
       <div class="col-md-4">
         <label for="type" class="form-label">Type</label>
-        <select class="form-control" aria-label="Default select example" onchange="alert(this.value)" name="type">
+        <select class="form-control" name="type">
+          <option value="" selected="selected" hidden="hidden">Choose type</option>
           <option value="consultation">Consultation</option>
           <option value="medication">Medication</option>
           <option value="imaging">Imaging</option>
