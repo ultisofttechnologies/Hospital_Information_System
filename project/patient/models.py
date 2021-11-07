@@ -7,6 +7,7 @@ from sqlalchemy import join
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
 from project.staff.models import Staff
+#from project.imaging.models import LabResults
 
 class Patient (db.Model):
     id = db.Column(db.Integer,primary_key=True)
@@ -17,11 +18,17 @@ class Patient (db.Model):
     maritalstatus = db.Column(db.String(15),nullable=False)
     phone = db.Column(db.String(15))
     patientDate = db.Column(db.DateTime,nullable=False)
+    city = db.Column(db.String(30))
+    address = db.Column(db.String(50))
+    region = db.Column(db.String(50))
+    email = db.Column(db.String(30))
     vitals_id = db.Column(db.Integer,db.ForeignKey('vitals.id'))
+    lab_results_id = db.Column(db.Integer,db.ForeignKey('labresults.id'))
     appointment_id = db.Column(db.Integer,db.ForeignKey('appointment.id'))
     emergencyName = db.Column(db.String(30),nullable=False)
     emergencyPhone = db.Column(db.String(15),nullable=False)
     relationshiptoemergencycontact = db.Column(db.String(15))
+    emergencyEmail = db.Column(db.String(25))
     sex = db.Column(db.String(10),nullable=False)
     status = db.Column(db.String(10))
     def __init__(self, firstname,middlename,lastname):

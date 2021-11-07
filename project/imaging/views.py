@@ -23,6 +23,13 @@ imaging_blueprint = Blueprint('imaging',__name__,template_folder='templates/imag
 #@login_required
 def newImaging ():
   title = 'Natural Solutions Herbal Clinic | New Imaging'
+  if request.method == 'POST':
+      if request.form['submit'] == 'add_lab':
+          print('working')
+      else:
+          pass
+  else:
+      pass
   return render_template('newImaging.html',title=title)
 
 @imaging_blueprint.route('/requested_imagings',methods = ['GET','POST'])

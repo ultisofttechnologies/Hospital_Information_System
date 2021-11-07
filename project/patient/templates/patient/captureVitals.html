@@ -1,113 +1,179 @@
-{% extends "layout.html" %}
-{% block title %}{{title}}{% endblock %}
-{% block main %}
-  <h3><i class="fa fa-angle-right"></i> Capture Patient Vitals</h3>
-  <div>
-    <form class="row g-3 bg-white p-4 mt-3" method="post">
-      {% block flashMessages %}
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <ul>
-                {% for message in messages %}
-                <li class="text-danger p-2">{{ message }}</li>
-                {% endfor %}
-            </ul>
-          {% endif %}
-        {% endwith %}
-      {% endblock%}
-      <div class="col-md-4">
-        <label for="patientCode" class="form-label">Patient Code</label>
-        <input type="number" id="patient_id" class="form-control" name="patientCode" required>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% extends "layout.html" %}
+    {% block title %}{{title}}{% endblock %}
+    {% block main %}
+      <script type="text/javascript">
+        function populateFields() {
+            var patient_id = parseInt(document.getElementById('patient_id').value);
+          {% for x in all_patients %}
+          var patient_id = parseInt(document.getElementById('patient_id').value);
+            var id = {{x.id}};
+            if (patient_id == 0 ) {
+              document.getElementById('middlename').value= '';
+              document.getElementById('lastname').value= '';
+              document.getElementById('sex').value= '';
+              document.getElementById('dateofbirth').value= '';
+              document.getElementById('middlename').value= '';
+              document.getElementById('firstname').value = '';
+              document.getElementById('output').value=0.00;
+
+            }
+            else if (id==patient_id) {
+              document.getElementById('middlename').value= '{{x.middlename}}';
+              document.getElementById('lastname').value= '{{x.lastname}}';
+              document.getElementById('sex').value= '{{x.sex}}';
+              document.getElementById('dateofbirth').value= '{{x.dateofbirth}}';
+              document.getElementById('middlename').value= '{{x.middlename}}';
+              document.getElementById('firstname').value = '{{x.firstname}}'
+              var height = parseFloat(document.getElementById('height').value);
+              var weight = parseFloat(document.getElementById('weight').value);
+              if (height == 0 || weight == 0 ) {
+                document.getElementById('output').value=0.00;
+              }
+              else {
+                document.getElementById('output').value= (weight / (height * height)).toFixed(3);
+              }
+            }
+            else {
+                  // var patient_id = parseInt(document.getElementById('patient_id').value);
+                  var test = false;
+                  {% for q in all_patients %}
+                  var q = {{q.id}};
+                  if (q == patient_id) {
+                    test = true;
+                  }
+                  {% endfor %}
+                  if (test==false) {
+                    document.getElementById('middlename').value= '';
+                    document.getElementById('lastname').value= '';
+                    document.getElementById('sex').value= '';
+                    document.getElementById('dateofbirth').value= '';
+                    document.getElementById('middlename').value= '';
+                    document.getElementById('firstname').value = '';
+                    document.getElementById('output').value=0.00;
+                  }
+            }
+          {% endfor %}
+
+        }
+      </script>
+      <h3><i class="fa fa-angle-right"></i> Capture Patient Vitals</h3>
+      <div>
+        <form class="row g-3 bg-white p-4 mt-3" method="post">
+          {% block flashMessages %}
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li class="text-danger p-2">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+          {% endblock%}
+          <div class="col-md-4">
+            <label for="patientCode" class="form-label">Patient Code</label>
+            <input type="number" id="patient_id" class="form-control" min="0" value="0" onkeyup="populateFields()" name="patientCode" required>
+          </div>
+          <div class="col-md-4">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" disabled class="form-control" id="firstname" name="firstname" required>
+          </div>
+          <div class="col-md-4">
+            <label for="middlename" class="form-label">Middle Name</label>
+            <input type="text" class="form-control" disabled id="middlename" name="middlename">
+          </div>
+          <div class="col-md-4">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname" disabled name="lastname" required>
+          </div>
+          <div class="col-md-2">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" min="0" step="any" class="form-control" disabled id="age" name="age">
+          </div>
+          <div class="col-md-4">
+            <label for="dateofbirth" class="form-label">Date of Birth</label>
+            <input type="date" class="form-control" name="dateofbirth" id="dateofbirth" disabled required>
+          </div>
+          <div class="col-md-2">
+            <label for="sex" class="form-label">Sex</label>
+            <select class="form-select" aria-label="Default select example" id="sex" name="sex" disabled required>
+              <option value="" selected="selected" hidden="hidden">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <hr/>
+          <div class="col-md-3">
+            <label for="weight" class="form-label">Weight</label>
+            <div class="input-group">
+              <input type="number" step="any" min="0" value="0" onkeyup="populateFields()" id="weight" class="form-control" name="weight" aria-label="Weight in kilogram" required>
+              <span class="input-group-text">Kg</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="height" class="form-label">Height</label>
+            <div class="input-group">
+              <input type="number" step="any" min="0" id="height" onkeyup="populateFields()" value="0" class="form-control" name="height" aria-label="Height in Centimetres" required>
+              <span class="input-group-text">Cm</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="bmi" class="form-label">Calculated BMI</label>
+            <div class="input-group">
+              <input type="number" disabled step="any" min="0" id="output" class="form-control" name="calculatedBMI"aria-label="Calculated BMI" required>
+              <span class="input-group-text">BMI</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="temperature" class="form-label">Temperature</label>
+            <div class="input-group">
+              <input type="number" step="any" min="0" class="form-control" name="temperature" aria-label="Temperature" required>
+              <span class="input-group-text">°C</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="pulse" class="form-label">Pulse</label>
+            <div class="input-group">
+              <input type="number" step="any" min="0" class="form-control" name="pulse" aria-label="Pulse" required>
+              <span class="input-group-text">/min</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="respiratoryRate" class="form-label">Respiratory Rate</label>
+            <div class="input-group">
+              <input type="number" step="any" min="0" class="form-control" name="respiratoryRate" aria-label="Respiratory" required>
+              <span class="input-group-text">/min</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="bloodPressure" class="form-label">Blood Pressure</label>
+            <div class="input-group">
+              <input type="number" step="any" min="0" class="form-control" name="bloodPressureone" aria-label="Blood Pressure" required>
+              /
+              <input type="number" step="any" min="0" class="form-control" name="bloodPressuretwo" aria-label="Blood Pressure" required>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="pulse-oximeter" class="form-label">Arterial blood oxygen sat.(pulse oximeter)</label>
+            <div class="input-group">
+              <input type="number" step="any" min="0" class="form-control" name="pulseOximeter" aria-label="pulse-oximeter" required>
+              <span class="input-group-text">%</span>
+            </div>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-small btn-theme" name="submit" value="captureVitals">Add Vitals</button>
+          </div>
+        </form>
       </div>
-      <div class="col-md-4">
-        <label for="firstname" class="form-label">First Name</label>
-        <input type="text" class="form-control" id="firstname" name="firstname" required>
-      </div>
-      <div class="col-md-4">
-        <label for="middlename" class="form-label">Middle Name</label>
-        <input type="text" class="form-control" id="middlename" name="middlename">
-      </div>
-      <div class="col-md-4">
-        <label for="lastname" class="form-label">Last Name</label>
-        <input type="text" class="form-control" id="lastname" name="lastname" required>
-      </div>
-      <div class="col-md-2">
-        <label for="age" class="form-label">Age</label>
-        <input type="number" min="0" step="any" class="form-control" id="age" name="age" required>
-      </div>
-      <div class="col-md-4">
-        <label for="dateofbirth" class="form-label">Date of Birth</label>
-        <input type="date" class="form-control" name="dateofbirth" required>
-      </div>
-      <div class="col-md-2">
-        <label for="sex" class="form-label">Sex</label>
-        <select class="form-select" aria-label="Default select example" name="sex" required>
-          <option value="" selected="selected" hidden="hidden">Choose Doctor</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      </div>
-      <hr/>
-      <div class="col-md-3">
-        <label for="weight" class="form-label">Weight</label>
-        <div class="input-group">
-          <input type="number" step="any" min="0" class="form-control" name="weight" aria-label="Weight in kilogram">
-          <span class="input-group-text">Kg</span>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <label for="height" class="form-label">Height</label>
-        <div class="input-group">
-          <input type="number" step="any" min="0" class="form-control" name="height" aria-label="Height in kilogram">
-          <span class="input-group-text">Cm</span>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <label for="bmi" class="form-label">Calculated BMI</label>
-        <div class="input-group">
-          <input type="number" step="any" min="0" class="form-control" name="calculatedBMI"aria-label="Calculated BMI">
-          <span class="input-group-text">BMI</span>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <label for="temperature" class="form-label">Temperature</label>
-        <div class="input-group">
-          <input type="number" step="any" min="0" class="form-control" name="temperature" aria-label="Temperature">
-          <span class="input-group-text">°C</span>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <label for="pulse" class="form-label">Pulse</label>
-        <div class="input-group">
-          <input type="number" step="any" min="0" class="form-control" name="pulse" aria-label="Pulse">
-          <span class="input-group-text">/min</span>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <label for="respiratoryRate" class="form-label">Respiratory Rate</label>
-        <div class="input-group">
-          <input type="number" step="any" min="0" class="form-control" name="respiratoryRate" aria-label="Respiratory">
-          <span class="input-group-text">/min</span>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <label for="bloodPressure" class="form-label">Blood Pressure</label>
-        <div class="input-group">
-          <input type="number" step="any" min="0" class="form-control" name="bloodPressureone" aria-label="Blood Pressure">
-          /
-          <input type="number" step="any" min="0" class="form-control" name="bloodPressuretwo" aria-label="Blood Pressure">
-        </div>
-      </div>
-      <div class="col-md-3">
-        <label for="pulse-oximeter" class="form-label">Arterial blood oxygen sat.(pulse oximeter)</label>
-        <div class="input-group">
-          <input type="number" step="any" min="0" class="form-control" name="pulseOximeter" aria-label="pulse-oximeter">
-          <span class="input-group-text">%</span>
-        </div>
-      </div>
-      <div class="col-12">
-        <button type="submit" class="btn btn-small btn-theme" name="submit" value="captureVitals">Add Vitals</button>
-      </div>
-    </form>
-  </div>
-{% endblock %}
+
+    {% endblock %}
+
+  </body>
+</html>

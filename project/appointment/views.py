@@ -25,7 +25,7 @@ appointment_blueprint = Blueprint('appointment',__name__,template_folder='templa
 def newAppointment ():
   title = 'Natural Solutions Herbal Clinic | New Appointment'
   messages = ''
-  messages = 'View appointments messages to popup'
+  messages = 'New Appointment'
   alldoctors = Staff.query.filter_by(role='Doctor').order_by(asc(Staff.firstname)).all()
   if request.method == 'POST':
       if request.form['submit'] == 'newAppointment':
@@ -38,7 +38,7 @@ def newAppointment ():
           appointmenttime = datetime.strptime(appointmenttime,'%H:%M:%S')
           appointmentdate = datetime.strptime(appointmentdate,'%Y-%m-%d')
           type = request.form['type']
-          appointmenttime = datetime.datetime.combine(appointmentdate,appointtime)
+          appointmenttime = datetime.datetime.combine(appointmentdate,appointmenttime)
           newAppointment = Appointment(patientCode,doctor,1,datetime.utcnow(),appointmenttime,status,note)
           newAppointment.type = type
           db.session.add(newAppointment)
@@ -59,12 +59,21 @@ def viewAppointments ():
   title = 'Natural Solutions Herbal Clinic | View Appointments'
   messages = ''
   messages = 'Showing most recent appointments ...'
-  appointments = Appointment.query.order_by(asc(Appointment.booking_time)).all()
+  appointments = Appointment.query.order_by(desc(Appointment.booking_time)).all()
   if request.method == 'POST':
-      if request.form['submit'] == 'viewAppointment':
-          pass
-      else:
-          pass
+      appointments = Appointment.query.order_by(desc(Appointment.booking_time)).all()
+      for x in appointments:
+          id = {}
+          id['edit'] = 'editAppointment'+str(x.id)
+          id['delete'] = 'deleteAppointment'+str(x.id)
+          if request.form['submit'] == id['edit']:
+              session['id_edit'] = x.id
+              return redirect (url_for('appointment.editAppointment',id=x.id))
+          elif request.form['submit']==id['delete']:
+              session['id_delete'] = x.id
+              return redirect(url_for('appointment.deleteAppointment',id=x.id))
+          else:
+              pass
   else:
       pass
   return render_template('viewAppointments.html',appointments=appointments,title=title, messages=messages)
@@ -75,6 +84,15 @@ def editAppointment (id):
   title = 'Natural Solutions Herbal Clinic | View Appointments'
   messages = ''
   messages = 'Edit appointments messages to popup'
+  try:
+      id = int(id)
+      if Patient.query.get(id)==None:
+          messages = 'No existing patient in database with this ID: ' + str(id)
+      else:
+          patient = Patient.query.get(id)
+          messages = 'Please you are editing details of ' + str(patient.firstname) + ' ' + (patient.middlename) + ' ' + (patient.lastname)
+  except:
+      messages = 'Please check the ID entered!'
   return render_template('editAppointment.html',title=title, id=id, messages=messages)
 
 @appointment_blueprint.route('/delete/<id>',methods = ['GET','POST'])

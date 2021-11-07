@@ -21,13 +21,13 @@
         </div>
         <div class="col-md-4">
           <label for="patientCode" class="form-label">Patient Name: </label>
-          <span>Joye</span>
-          <span>Kwasi</span>
-          <span>Bonzie</span>
+          <span>{{patient.firstname}}</span>
+          <span>{{patient.middlename}}</span>
+          <span>{{patient.lastname}}</span>
         </div>
         <div class="col-md-4">
           <label for="patientCode" class="form-label">Sex: </label>
-          <span>Male</span>
+          <span>{{patient.sex | capitalize }}</span>
         </div>
         <div class="col-md-12">
           Click YES to confirm
